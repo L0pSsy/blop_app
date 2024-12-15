@@ -1,6 +1,6 @@
 const startVoiceButton = document.getElementById('startVoice');
 const resetButton = document.getElementById('resetBoard');
-const status = document.getElementById('status');
+const statusElement = document.getElementById('status');  // Utilisation de l'élément DOM pour le statut
 const grid = document.getElementById('grid');
 
 // Initialiser la grille
@@ -18,30 +18,40 @@ const recognition = new SpeechRecognition();
 recognition.lang = "fr-FR";
 recognition.continuous = false;
 
+// Lorsque la reconnaissance vocale commence
 recognition.onstart = () => {
-    status.textContent = "Statut : Écoute en cours...";
+    statusElement.textContent = "Statut : Écoute en cours...";  // Affichage dans l'élément DOM
+    // Mise à jour de l'icône du micro en micro activé
     startVoiceButton.innerHTML = '<i class="fa-solid fa-microphone"></i>';
 };
 
+// Lorsque la reconnaissance vocale se termine
 recognition.onend = () => {
-    status.textContent = "Statut : En attente...";
+    statusElement.textContent = "Statut : En attente...";  // Affichage dans l'élément DOM
+    // Mise à jour de l'icône du micro en micro désactivé
     startVoiceButton.innerHTML = '<i class="fa-solid fa-microphone-slash"></i>';
 };
 
+// Lorsque la reconnaissance vocale détecte un résultat
 recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.trim().toUpperCase();
-    status.textContent = `Commande reçue : "${transcript}"`;
+    statusElement.textContent = `Commande reçue : "${transcript}"`;  // Affichage dans l'élément DOM
     handleVoiceCommand(transcript);
 };
 
 // Gérer les clics pour activer/désactiver la reconnaissance vocale
 startVoiceButton.onclick = () => {
-    if (status.textContent.includes("Écoute en cours")) {
+    // Vérifier si la reconnaissance vocale est en cours ou non
+    if (recognition && statusElement.textContent.includes("Écoute en cours")) {
+        // Arrêter la reconnaissance vocale
         recognition.stop();
     } else {
+        // Démarrer la reconnaissance vocale
         recognition.start();
     }
 };
 
 // Réinitialiser le plateau
-resetButton
+resetButton.onclick = () => {
+    // Ajoutez ici la logique pour réinitialiser votre plateau (si nécessaire)
+};
