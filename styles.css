@@ -6,7 +6,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background: url('/image/mapblop.png') no-repeat center center fixed; /* Utilise une image de fond */
+    background: url('mapblop.png') no-repeat center center fixed; /* Utilise une image de fond */
     background-size: cover;
     perspective: 1500px; /* Effet de profondeur */
 }
