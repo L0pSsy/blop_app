@@ -1,0 +1,91 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: url('/image/mapblop.png') no-repeat center center fixed; /* Utilise une image de fond */
+    background-size: cover;
+    perspective: 1500px; /* Effet de profondeur */
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 36px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6); /* Plateau avec fond semi-transparent */
+    padding: 20px;
+}
+
+.case {
+    width: 70px;
+    height: 70px;
+    background-color: #b4d2a0;
+    border: 3px solid #aab8a6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: #34495e;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #d6e7c1, #b4d2a0);
+}
+
+.case:hover {
+    transform: translateY(-8px) scale(1.1); /* Effet d'élévation au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #a6c27d;
+    background: linear-gradient(45deg, #a6c27d, #d6e7c1);
+    color: #ffffff;
+}
+
+#startVoice, #resetBoard {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease;
+    margin: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#startVoice:hover, #resetBoard:hover {
+    background: linear-gradient(90deg, #2980b9, #2471a3);
+    transform: scale(1.05) translateY(-2px);
+}
+
+/* Nouveau style pour centrer le statut */
+#status {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #06763a;
+    text-align: center; /* Centrer le texte */
+    width: 100%; /* Prendre toute la largeur disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Fixer la hauteur pour une meilleure alignement */
+}
