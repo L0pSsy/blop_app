@@ -89,3 +89,73 @@ h1 {
     align-items: center;
     height: 50px; /* Fixer la hauteur pour une meilleure alignement */
 }
+
+/* --- Responsive Design --- */
+
+/* Tablettes (1024px et moins) */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes au lieu de 6 */
+        gap: 10px;
+    }
+
+    .case {
+        width: 60px;
+        height: 60px;
+        font-size: 10px; /* Réduire la taille du texte */
+    }
+
+    h1 {
+        font-size: 30px; /* Réduire la taille du titre */
+    }
+}
+
+/* Smartphones (768px et moins) */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes pour un petit écran */
+        gap: 8px;
+    }
+
+    .case {
+        width: 50px;
+        height: 50px;
+        font-size: 8px; /* Texte encore plus petit */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #startVoice, #resetBoard {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Petits smartphones (480px et moins) */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes seulement */
+        gap: 5px;
+    }
+
+    .case {
+        width: 40px;
+        height: 40px;
+        font-size: 6px; /* Texte minimal */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #startVoice, #resetBoard {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    #status {
+        font-size: 12px;
+    }
+}
